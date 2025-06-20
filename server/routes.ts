@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertGoalSchema, insertContributionSchema, type DashboardData, type ExchangeRate } from "@shared/schema";
 import { z } from "zod";
+import "dotenv/config";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Exchange Rate API
