@@ -61,6 +61,18 @@ A modern, responsive savings goal tracker with multi-currency support and live e
    Get your free API key from [ExchangeRate-API](https://app.exchangerate-api.com/sign-up)
 
 4. **Start the development server**
+   
+   **For Windows (Option 1 - Using batch file):**
+   ```cmd
+   dev-windows.bat
+   ```
+   
+   **For Windows (Option 2 - Direct command):**
+   ```cmd
+   npx cross-env NODE_ENV=development tsx server/index.ts
+   ```
+   
+   **For macOS/Linux:**
    ```bash
    npm run dev
    ```
@@ -139,6 +151,23 @@ A modern, responsive savings goal tracker with multi-currency support and live e
 - **Zod validation**: Ensures data integrity on both client and server
 - **Tailwind CSS**: Rapid development with consistent design system
 - **Vite**: Fast development experience with HMR
+
+## Troubleshooting
+
+### Windows Setup Issues
+
+**Error: 'NODE_ENV' is not recognized as an internal or external command**
+- Use the provided `dev-windows.bat` file or the cross-env command as shown above
+- Make sure you've installed cross-env: `npm install cross-env`
+
+**Port already in use error**
+- Kill any existing Node.js processes: `taskkill /f /im node.exe`
+- Or change the port in `server/index.ts`
+
+**Exchange rate API errors**
+- Ensure your `EXCHANGE_RATE_API_KEY` is set in the `.env` file
+- Get a free API key from [ExchangeRate-API](https://app.exchangerate-api.com/sign-up)
+- Check your API key quota hasn't been exceeded
 
 ## Contributing
 

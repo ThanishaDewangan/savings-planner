@@ -90,6 +90,7 @@ This is a full-stack web application for tracking savings goals built with React
 - June 20, 2025: Added proper API key integration for exchange rate service
 - June 20, 2025: Fixed null reference error in contribution modal
 - June 20, 2025: Created comprehensive README with local setup instructions
+- June 20, 2025: Added Windows compatibility with cross-env and batch file for local development
 
 ## Tech Stack Summary
 **Frontend**: React 18 + TypeScript + Vite + TanStack Query + Wouter + Tailwind CSS + Shadcn/UI
