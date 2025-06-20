@@ -111,9 +111,12 @@ export default function AddGoalModal({ isOpen, onClose, onGoalAdded }: AddGoalMo
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md" aria-describedby="add-goal-description">
         <DialogHeader>
           <DialogTitle>Add New Goal</DialogTitle>
+          <p id="add-goal-description" className="sr-only">
+            Create a new savings goal by entering a name, target amount, and currency.
+          </p>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4">

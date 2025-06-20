@@ -8,7 +8,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Exchange Rate API
   app.get("/api/exchange-rate", async (req, res) => {
     try {
-      const response = await fetch("https://v6.exchangerate-api.com/v6/latest/USD");
+      const apiKey = process.env.EXCHANGE_RATE_API_KEY;
+      if (!apiKey) {
+        throw new Error("Exchange rate API key not configured");
+      }
+      
+      const response = await fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`);
       if (!response.ok) {
         throw new Error(`Exchange rate API error: ${response.status}`);
       }
@@ -107,7 +112,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Fetch current exchange rate
       let exchangeRate: ExchangeRate;
       try {
-        const response = await fetch("https://v6.exchangerate-api.com/v6/latest/USD");
+        const apiKey = process.env.EXCHANGE_RATE_API_KEY;
+        if (!apiKey) {
+          throw new Error("Exchange rate API key not configured");
+        }
+        
+        const response = await fetch(`https://v6.exchangerate-api.com/v6/${apiKey}/latest/USD`);
+        if (!response.ok) {
+          throw new Error(`Exchange rate API error: ${response.status}`);
+        }
         const data = await response.json();
         exchangeRate = {
           rate: data.conversion_rates.INR,
@@ -119,11 +132,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
           }),
         };
       } catch (error) {
-        // Fallback exchange rate
-        exchangeRate = {
-          rate: 83.50,
-          lastUpdated: "Not available",
-        };
+        console.error("Dashboard exchange rate fetch error:", error);
+        // Return error instead of fallback data
+        return res.status(500).json({ 
+          message: "Failed to fetch exchange rate", 
+          error: error instanceof Error ? error.message : "Unknown error" 
+        });
       }
 
       // Calculate totals

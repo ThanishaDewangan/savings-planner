@@ -149,12 +149,15 @@ export default function AddContributionModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md" aria-describedby="add-contribution-description">
         <DialogHeader>
           <DialogTitle>Add Contribution</DialogTitle>
           {goal && (
             <p className="text-sm text-gray-500">{goal.name}</p>
           )}
+          <p id="add-contribution-description" className="sr-only">
+            Add a financial contribution to your savings goal by entering an amount and date.
+          </p>
         </DialogHeader>
 
         {goalLoading ? (
@@ -206,7 +209,7 @@ export default function AddContributionModal({
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-600">Current Progress:</span>
                   <span className="font-medium">
-                    {formatCurrency(goal.totalSaved, goal.currency)} / {formatCurrency(goal.targetAmount, goal.currency)} ({goal.progressPercentage.toFixed(0)}%)
+                    {formatCurrency(goal.totalSaved, goal.currency)} / {formatCurrency(goal.targetAmount, goal.currency)} ({(goal.progressPercentage || 0).toFixed(0)}%)
                   </span>
                 </div>
               </Card>

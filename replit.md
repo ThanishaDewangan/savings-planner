@@ -85,8 +85,21 @@ This is a full-stack web application for tracking savings goals built with React
 - **Port Configuration**: Internal port 5000, external port 80
 - **Process Management**: npm scripts for development and production
 
+## Recent Changes
+- June 20, 2025: Fixed accessibility warnings for dialog components
+- June 20, 2025: Added proper API key integration for exchange rate service
+- June 20, 2025: Fixed null reference error in contribution modal
+- June 20, 2025: Created comprehensive README with local setup instructions
+
+## Tech Stack Summary
+**Frontend**: React 18 + TypeScript + Vite + TanStack Query + Wouter + Tailwind CSS + Shadcn/UI
+**Backend**: Express.js + TypeScript + Node.js 20 + In-memory storage
+**External**: ExchangeRate-API for live USD/INR rates
+**Build**: Single-server setup serving both API and static files
+
 ## Changelog
-- June 18, 2025. Initial setup
+- June 18, 2025: Initial project setup
+- June 20, 2025: Complete savings planner implementation with all core features
 
 ## User Preferences
 
