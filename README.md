@@ -63,8 +63,8 @@ A modern, responsive savings goal tracker with multi-currency support and live e
 4. **Start the development server**
    
    **For Windows (Option 1 - Using batch file):**
-   ```cmd
-   dev-windows.bat
+   ```powershell
+   .\dev-windows.bat
    ```
    
    **For Windows (Option 2 - Direct command):**
@@ -159,6 +159,14 @@ A modern, responsive savings goal tracker with multi-currency support and live e
 **Error: 'NODE_ENV' is not recognized as an internal or external command**
 - Use the provided `dev-windows.bat` file or the cross-env command as shown above
 - Make sure you've installed cross-env: `npm install cross-env`
+
+**PowerShell: 'dev-windows.bat' is not recognized**
+- Run with `.\dev-windows.bat` (include the dot and slash)
+- Or use Command Prompt instead of PowerShell
+
+**Error: listen ENOTSUP: operation not supported on socket 0.0.0.0:5000**
+- This Windows networking issue is now fixed - the app uses localhost for development
+- If still having issues, try a different port by changing it in `server/index.ts`
 
 **Port already in use error**
 - Kill any existing Node.js processes: `taskkill /f /im node.exe`
