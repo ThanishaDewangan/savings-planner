@@ -131,3 +131,5 @@ A modern, responsive savings goal tracker with multi-currency support and live e
 ✅ **Responsive Layout**: Works on all screen sizes
 ✅ **Code Quality**: TypeScript, clear component structure, meaningful commits
 
+## Vedio Link 
+ - https://drive.google.com/file/d/1e-mRz3mWHN8Nvpy6P4v94JUohTCQT3Hw/view?usp=sharing
